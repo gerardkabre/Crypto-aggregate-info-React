@@ -1,0 +1,270 @@
+ul {
+  padding: 0px;
+}
+a {
+  color: #6caeff;
+  text-decoration: none;
+}
+
+.blue {
+  color: #6caeff;
+}
+
+.center-text {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.27);
+}
+
+/******* SEARCHBAR *******/
+.nav {
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+.nav input {
+  font-size: 1em;
+  min-width: 500px;
+  border: 0px solid;
+  border-bottom: 1px solid rgba(143, 138, 138, 0.93);
+  background-color: rgba(255, 255, 255, 0);
+  color: #243d6f;
+}
+
+.nav input:focus {
+  outline-width: 0;
+}
+.nav ul {
+}
+.nav ul li {
+  display: inline-block;
+  margin-left: 15px;
+  text-transform: uppercase;
+}
+
+/******* LEFT-COLUMN *******/
+.leftlisting {
+  padding: 40px 0px;
+  background: #ffffff;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 17%;
+}
+.list {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.leftlisting li {
+  color: #a2aec0;
+  list-style: none;
+  padding: 2% 10%;
+  border-bottom: 1px solid rgba(185, 181, 181, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leftlisting li.selected {
+  color: #6caeff;
+  /*background-color: rgb(238, 238, 238);*/
+  cursor: pointer;
+  border-left: 5px solid #6caeff;
+  background-color: #f5f6f8;
+}
+.leftlisting li:hover {
+  color: #6caeff;
+  cursor: pointer;
+  border-left: 5px solid #6caeff;
+}
+.leftlisting li:active {
+  border-left: 5px solid #6caeff;
+  background-color: rgba(238, 235, 235, 0.47);
+}
+
+.left-price {
+  font-size: 0.85em;
+  color: rgba(123, 151, 180, 0.66);
+}
+
+.leftlisting h2 {
+  color: rgba(0, 0, 0, 0.33);
+  padding: 0% 15%;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/******* CENTER-COLUMN *******/
+.maincontent {
+  padding: 2% 4%;
+  background: #f5f6f8;
+  color: #848b97;
+  position: fixed;
+  width: 75%;
+  top: 0;
+  left: 1;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/****** CryptoPrices *****/
+
+.crypto-prices {
+  
+  padding: 15px;
+  background-color: white;
+  border: #75a1e248 solid 1px;
+  -webkit-box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
+  -moz-box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
+  box-shadow: 6px 8px 10px 0px rgba(168, 180, 201, 0.39);
+}
+
+.crypto-prices h1 {
+  text-align: center;
+  text-transform: uppercase;
+  
+}
+.change-data {
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.data-display {
+  border-radius: 10px;
+  min-height: 110px;
+  font-size: 3.3em;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.price {
+  margin: 3% auto;
+  max-width: 30%;
+  min-width: 30%;
+  min-height: 120px;
+  color: rgba(255, 255, 255, 0.9);
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  box-shadow: 0px 0px 72px 0px rgba(83, 172, 231, 0.98);
+  /*
+  background: #AAFFA9;  /
+  background: -webkit-linear-gradient(to right, #11FFBD, #AAFFA9);  /* C
+  background: linear-gradient(to right, #11FFBD, #AAFFA9); 
+  box-shadow: 0px 0px 72px 0px rgba(83, 231, 133, 0.98);
+  */
+}
+
+.price-increase {
+  color: rgba(255, 255, 255, 0.9);
+  background: #aaffa9;
+  background: -webkit-linear-gradient(to right, #11ffbd, #aaffa9);
+  background: linear-gradient(to right, #11ffbd, #aaffa9);
+  box-shadow: 0px 0px 72px 0px rgba(83, 231, 133, 0.98);
+
+  /*
+  color: #FFFFFF;  
+  background: #AAFFA9;  
+  background: -webkit-linear-gradient(to right, #11FFBD, #AAFFA9);  
+  background: linear-gradient(to right, #11FFBD, #AAFFA9); 
+  box-shadow: 0px 0px 72px 0px rgba(83, 231, 133, 0.98);
+  */
+}
+
+.price-decrease {
+  color: rgba(255, 255, 255, 0.9);
+  background-image: linear-gradient(-20deg, #fc6076 0%, #ff4a44 100%);
+  box-shadow: 0px 0px 72px 0px rgba(194, 60, 60, 0.747);
+  /*
+  color: rgba(83, 15, 15, 0.84);
+  background: #FF512F;  
+  background: -webkit-linear-gradient(to right, #DD2476, #FF512F);  
+  background: linear-gradient(to right, #DD2476, #FF512F); 
+   box-shadow: 0px 0px 72px 0px rgba(194, 80, 80, 0.88);
+ */
+}
+
+.chart {
+  border-radius: 10px;
+  padding: 15px;
+  background-color: white;
+  -webkit-box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
+  -moz-box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
+  box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
+}
+
+/******* NEWS & REDDIT *******/
+
+.content-lists {
+  display: flex;
+}
+
+.reddit-container {
+  margin-top: 2%;
+  flex: 1;
+  order:1;
+}
+.reddit-container h1 {
+  text-align: center;
+}
+.news-container {
+  margin-top: 2%;
+  order:2;
+  flex: 1;
+}
+
+.news-container h1 {
+  text-align: center;
+}
+
+.news-container-inside {
+  padding: 0% 3%;
+}
+
+.reddit-container-inside {
+  padding: 0% 3%;
+}
+
+.post {
+  background-color: white;
+  font-size: 0.9em;
+  border: #75a1e248 solid 1px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 2%;
+  -webkit-box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
+  -moz-box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
+  box-shadow: 6px 8px 10px 0px rgba(168, 180, 201, 0.39);
+}
+
+.post:hover{
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+
+.post p {
+  margin: 0px;
+  color: rgba(9, 39, 87, 0.47);
+}
+.post h4 {
+  display: flex;
+  color: rgba(0, 0, 0, 0.46);
+  margin: 0;
+}
+.post h3 {
+  color: #6caeff;
+  display: flex;
+  margin: 0;
+}
+
+.post-descriptions {
+  display: flex;
+  justify-content: space-between;
+}
