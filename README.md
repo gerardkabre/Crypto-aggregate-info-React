@@ -1,1 +1,1 @@
-# Crypto-aggregate-info-React
+# Crypto-aggregate-info-React.
