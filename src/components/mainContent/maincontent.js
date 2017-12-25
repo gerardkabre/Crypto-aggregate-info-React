@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Nav from "./nav";
-import News from "./News";
-import CryptoPrice from "./CryptoPrice";
-import Reddit from "./reddit";
+import Nav from "./Nav/nav";
+import News from "./News/News";
+import CryptoPrice from "./CryptoPrices/CryptoPrice";
+import Reddit from "./Reddit/reddit";
 
 class Maincontent extends Component {
   render() {

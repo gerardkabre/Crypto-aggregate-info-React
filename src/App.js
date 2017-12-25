@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import Leftlisting from "./components/leftlisting";
-import Maincontent from "./components/maincontent";
+import Leftlisting from "./components/leftContent/leftlisting";
+import Maincontent from "./components/mainContent/maincontent";
 
 import "./App.css";
 
