@@ -8,7 +8,8 @@ class App extends Component {
     super(props);
     this.state = {
       coins: [],
-      selectedCoin: "bitcoin"
+      selectedCoin: "bitcoin",
+      searchTerm: ""
     };
     this.coinsURL = `https://api.coinmarketcap.com/v1/ticker/`;
 
@@ -26,10 +27,15 @@ class App extends Component {
           onCoinSelect={coinSelected =>
             this.setState({ selectedCoin: coinSelected })
           }
+          searchTerm={this.state.searchTerm}
         />
         <Maincontent
           selectedCoin={this.state.selectedCoin}
           coins={this.state.coins}
+          searchTerm={this.state.searchTerm}
+          onSearchTermChange={event =>
+            this.setState({ searchTerm: event.target.value })
+          }
         />
       </div>
     );

@@ -1,12 +1,12 @@
 import React from "react";
 
-let Nav = () => (
+let Nav = (props) => (
   <div className="nav">
     <div className="logo">
       
     </div>
     <div className="searchBar">
-      <input placeholder="Search for a crypto" />
+      <input placeholder="Search for a crypto" value={props.searchTerm} onChange={props.onSearchTermChange} />
       
     </div>
     <div className="menu">

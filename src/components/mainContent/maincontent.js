@@ -8,7 +8,8 @@ class Maincontent extends Component {
   render() {
     return (
       <div className="maincontent">
-        <Nav />
+        <Nav onSearchTermChange={this.props.onSearchTermChange} 
+        searchTerm={this.props.searchTerm}/>
 
         <CryptoPrice
           coins={this.props.coins}
@@ -24,6 +25,3 @@ class Maincontent extends Component {
 }
 
 export default Maincontent;
-
-// ---------------------
-
