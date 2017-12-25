@@ -51,10 +51,11 @@ a {
   left: 0;
   right: 0;
   width: 17%;
+  height: 80vh;
 }
 .list {
+  height: 100%;
   overflow-y: scroll;
-  overflow-x: hidden;
 }
 
 .leftlisting li {
