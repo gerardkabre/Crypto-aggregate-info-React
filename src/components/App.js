@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-
-import Leftlisting from "./components/leftContent/leftlisting";
-import Maincontent from "./components/mainContent/maincontent";
-
-import "./App.css";
+import Leftlisting from "./leftContent/leftlisting";
+import Maincontent from "./mainContent/maincontent";
+import "../App.css";
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +17,6 @@ class App extends Component {
       .then(coins => this.setState({ coins: coins }));
   }
 
-  
   render() {
     return (
       <div>
@@ -27,7 +24,8 @@ class App extends Component {
           coins={this.state.coins}
           selectedCoin={this.state.selectedCoin}
           onCoinSelect={coinSelected =>
-            this.setState({ selectedCoin: coinSelected })}
+            this.setState({ selectedCoin: coinSelected })
+          }
         />
         <Maincontent
           selectedCoin={this.state.selectedCoin}
