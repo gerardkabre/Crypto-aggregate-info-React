@@ -31,7 +31,19 @@ class News extends Component {
           Articles
         </h1>
         <div className="news-container-inside">
-          {this.state.articles.map(x => <Article article={x} />)}
+          <table>
+            <thead>
+              <tr>
+              <th className="th">Title</th>
+              <th className="th">Source</th>
+              <th className="th">Author</th>
+              <th className="th">Date</th>
+              </tr>
+            </thead>
+            <tbody className="tbody">
+              {this.state.articles.map(x => <Article article={x} />)}
+            </tbody>
+          </table>
         </div>
       </div>
     );

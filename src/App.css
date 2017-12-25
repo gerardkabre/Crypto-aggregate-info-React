@@ -262,7 +262,7 @@ thead {
   -moz-box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
   box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
 }
-td:nth-child(1), th:nth-child(1) { width: 60% }
+td:nth-child(1), th:nth-child(1) { width: 50% }
 td:nth-child(2), th:nth-child(2) { width: 10% }
 td:nth-child(3), th:nth-child(3) { width: 10% }
 td:nth-child(4), th:nth-child(4) { width: 10% }
@@ -279,7 +279,6 @@ td {
   border: 1px solid #cdd4da;
   
 }
-
 
 
 .tbody {
