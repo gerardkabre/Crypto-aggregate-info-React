@@ -109,40 +109,19 @@ a {
   width: 100%;
   cursor: pointer;
   border: 0px;
-  border-radius: 20px;
-  
+  color: #a2aec0;
 }
 .left-filters-button:hover {
-  
-  box-shadow:0 0 10px #cdd4da;
+  color: #6caeffa4;
+
 }
 
 .left-filters-button-chosen {
-  outline:none;
-  border-color:#6caeff7e;
-  box-shadow:0 0 10px #6caeff77;
-  
+  color: #6caeff;
 }
 .left-filters-button:focus {
   outline: none;
 }
-.left-filters-button-decrease { 
-  background: url('./images/price-decrease.svg') center no-repeat;
-  background-size: 40%;
-}
-.left-filters-button-increase { 
-  background: url('./images/price-increase.svg') center no-repeat;
-  background-size: 40%;
-}
-.left-filters-button-letterdecrease { 
-  background: url('./images/letter-decrease.svg') center no-repeat;
-  background-size: 40%;
-}
-.left-filters-button-letterincrease { 
-  background: url('./images/letter-increase.svg') center no-repeat;
-  background-size: 40%;
-}
-
 
 /******* CENTER-COLUMN *******/
 .maincontent {

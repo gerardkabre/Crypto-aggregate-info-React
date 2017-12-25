@@ -1,6 +1,6 @@
 import React from "react";
 import Leftitem from "./leftitem";
-import FontAwesome from 'react-fontawesome';
+import FontAwesome from "react-fontawesome"; // https://stackoverflow.com/questions/44680038/how-to-import-font-awesome-in-node-js-to-use-in-react-js
 
 class Leftlisting extends React.Component {
   constructor(props) {
@@ -22,11 +22,11 @@ class Leftlisting extends React.Component {
           (a, b) => parseFloat(a.price_usd) - parseFloat(b.price_usd)
         );
         break;
-      case "LETTER-DECREASE":  
+      case "LETTER-DECREASE":
         this.props.coins.sort((a, b) => a.id.localeCompare(b.id));
         break;
       case "LETTER-INCREASE":
-        this.props.coins.sort((a, b) => b.id.localeCompare(a.id));  
+        this.props.coins.sort((a, b) => b.id.localeCompare(a.id));
         break;
     }
   }
@@ -36,46 +36,54 @@ class Leftlisting extends React.Component {
       return <div> Loading... </div>;
     }
     return (
-      
-
       <div className="leftlisting">
-      <FontAwesome name="linkedin" size="2x"/>
-
         <h2>Choose a currency</h2>
         <div className="left-filters">
-          <button 
-            className={this.state.order === "PRICE-DECREASE"
-                ? "left-filters-button-chosen left-filters-button left-filters-button-decrease"
-                : "left-filters-button left-filters-button-decrease"
+          <FontAwesome
+            name=" fa-sort-amount-desc"
+            size="2x"
+            className={
+              this.state.order === "PRICE-DECREASE"
+                ? "left-filters-button-chosen left-filters-button"
+                : "left-filters-button"
             }
             onClick={event => this.setState({ order: "PRICE-DECREASE" })}
           />
-          <button
+
+          <FontAwesome
+            name=" fa-sort-amount-asc"
+            size="2x"
             className={
               this.state.order === "PRICE-INCREASE"
-                ? "left-filters-button-chosen left-filters-button left-filters-button-increase"
-                : "left-filters-button left-filters-button-increase"
+                ? "left-filters-button-chosen left-filters-button"
+                : "left-filters-button"
             }
             onClick={() => this.setState({ order: "PRICE-INCREASE" })}
           />
-          <button
+           
+
+           <FontAwesome
+            name=" fa-sort-alpha-asc"
+            size="2x"
             className={
               this.state.order === "LETTER-DECREASE"
-                ? "left-filters-button-chosen left-filters-button left-filters-button-letterdecrease"
-                : "left-filters-button left-filters-button-letterdecrease"
+                ? "left-filters-button-chosen left-filters-button "
+                : "left-filters-button"
             }
             onClick={() => this.setState({ order: "LETTER-DECREASE" })}
           />
-          <button
+          <FontAwesome
+          name="  fa-sort-alpha-desc"
+          size="2x"
             className={
               this.state.order === "LETTER-INCREASE"
-                ? "left-filters-button-chosen left-filters-button left-filters-button-letterincrease"
-                : "left-filters-button left-filters-button-letterincrease"
+                ? "left-filters-button-chosen left-filters-button"
+                : "left-filters-button"
             }
             onClick={() => this.setState({ order: "LETTER-INCREASE" })}
           />
         </div>
-      
+
         <div className="list">
           <ul>
             {this.props.coins
