@@ -108,7 +108,9 @@ a {
 .left-filters-button {
   width: 100%;
   cursor: pointer;
-  border: 1px solid rgba(192, 187, 187, 0.253);
+  border: 0px;
+  border-radius: 20px;
+  
 }
 .left-filters-button:hover {
   
@@ -117,8 +119,9 @@ a {
 
 .left-filters-button-chosen {
   outline:none;
-  border-color:#9ecaed;
-  box-shadow:0 0 10px #9ecaed;
+  border-color:#6caeff7e;
+  box-shadow:0 0 10px #6caeff77;
+  
 }
 .left-filters-button:focus {
   outline: none;
@@ -238,15 +241,71 @@ a {
   border-radius: 10px;
   padding: 15px;
   background-color: white;
-  -webkit-box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
-  -moz-box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
-  box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
+  -webkit-box-shadow: 6px 18px 29px 0px rgba(119, 126, 138, 0.39);
+  -moz-box-shadow: 6px 18px 29px 0px rgba(112, 118, 129, 0.39);
+  box-shadow: 6px 18px 29px 0px rgba(102, 110, 122, 0.39);
 }
 
 /******* NEWS & REDDIT *******/
 
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+thead {
+  display:table;
+  width: 100%;
+  background-color: white;
+  -webkit-box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
+  -moz-box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
+  box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
+}
+td:nth-child(1), th:nth-child(1) { width: 60% }
+td:nth-child(2), th:nth-child(2) { width: 10% }
+td:nth-child(3), th:nth-child(3) { width: 10% }
+td:nth-child(4), th:nth-child(4) { width: 10% }
+
+.th {
+  padding: 2%;
+  color: #6caeff;
+}
+
+td {
+  color: rgb(98, 98, 107);
+  text-align: left;
+  padding: 1%;
+  border: 1px solid #cdd4da;
+  
+}
+
+
+
+.tbody {
+  display: block;
+  overflow: auto;
+  width: 100%;
+  height: 450px;
+}
+ 
+tbody tr {
+  background-color: white;
+}
+tbody tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.507);
+
+}
+
+.scrollable-content { 
+  
+  max-height: 450px;
+  overflow-y: scroll;
+  display: block;
+}
 .content-lists {
   display: flex;
+  flex-direction: column;
 }
 
 .reddit-container {
@@ -278,14 +337,12 @@ a {
 .post {
   background-color: white;
   font-size: 0.9em;
-  border: #75a1e248 solid 1px;
+  border: #bebfc248 solid 1px;
+  border-bottom: 0px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
   padding: 2%;
-  -webkit-box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
-  -moz-box-shadow: 6px 18px 29px 0px rgba(168, 180, 201, 0.39);
-  box-shadow: 6px 8px 10px 0px rgba(168, 180, 201, 0.39);
+
 }
 
 .post:hover{
