@@ -21,11 +21,11 @@ class Leftlisting extends React.Component {
           (a, b) => parseFloat(a.price_usd) - parseFloat(b.price_usd)
         );
         break;
-      case "LETTER-DECREASE":
-        this.props.coins.sort((a, b) => b.id.localeCompare(a.id));
+      case "LETTER-DECREASE":  
+        this.props.coins.sort((a, b) => a.id.localeCompare(b.id));
         break;
       case "LETTER-INCREASE":
-        this.props.coins.sort((a, b) => a.id.localeCompare(b.id));
+        this.props.coins.sort((a, b) => b.id.localeCompare(a.id));  
         break;
     }
   }
@@ -37,11 +37,39 @@ class Leftlisting extends React.Component {
     return (
       <div className="leftlisting">
         <h2>Choose a currency</h2>
-        <button onClick={() => this.setState({ order: "PRICE-DECREASE" })} />
-        <button onClick={() => this.setState({ order: "PRICE-INCREASE" })} />
-        <button onClick={() => this.setState({ order: "LETTER-INCREASE" })} />
-        <button onClick={() => this.setState({ order: "LETTER-DECREASE" })} />
-
+        <div className="left-filters">
+          <button
+            className={this.state.order === "PRICE-DECREASE"
+                ? "left-filters-button-chosen left-filters-button left-filters-button-decrease"
+                : "left-filters-button left-filters-button-decrease"
+            }
+            onClick={event => this.setState({ order: "PRICE-DECREASE" })}
+          />
+          <button
+            className={
+              this.state.order === "PRICE-INCREASE"
+                ? "left-filters-button-chosen left-filters-button left-filters-button-increase"
+                : "left-filters-button left-filters-button-increase"
+            }
+            onClick={() => this.setState({ order: "PRICE-INCREASE" })}
+          />
+          <button
+            className={
+              this.state.order === "LETTER-DECREASE"
+                ? "left-filters-button-chosen left-filters-button left-filters-button-letterdecrease"
+                : "left-filters-button left-filters-button-letterdecrease"
+            }
+            onClick={() => this.setState({ order: "LETTER-DECREASE" })}
+          />
+          <button
+            className={
+              this.state.order === "LETTER-INCREASE"
+                ? "left-filters-button-chosen left-filters-button left-filters-button-letterincrease"
+                : "left-filters-button left-filters-button-letterincrease"
+            }
+            onClick={() => this.setState({ order: "LETTER-INCREASE" })}
+          />
+        </div>
         <div className="list">
           <ul>
             {this.props.coins

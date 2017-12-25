@@ -45,13 +45,14 @@ a {
 
 /******* LEFT-COLUMN *******/
 .leftlisting {
-  padding: 40px 0px;
   background: #ffffff;
   top: 0;
   left: 0;
   right: 0;
   width: 17%;
-  height: 80vh;
+  height: 85vh;
+  padding: 20px 0px;
+  text-align: center;
 }
 .list {
   height: 100%;
@@ -92,11 +93,53 @@ a {
 
 .leftlisting h2 {
   color: rgba(0, 0, 0, 0.33);
-  padding: 0% 15%;
-  font-size: 1.3em;
+  font-size: 1.2em;
   text-transform: uppercase;
-  margin: 0;
+  margin: 0 0 10px 0;
+  
 }
+
+.left-filters {
+  display: flex;
+  height: 5%; 
+  
+}
+
+.left-filters-button {
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(192, 187, 187, 0.253);
+}
+.left-filters-button:hover {
+  
+  box-shadow:0 0 10px #cdd4da;
+}
+
+.left-filters-button-chosen {
+  outline:none;
+  border-color:#9ecaed;
+  box-shadow:0 0 10px #9ecaed;
+}
+.left-filters-button:focus {
+  outline: none;
+}
+.left-filters-button-decrease { 
+  background: url('./images/price-decrease.svg') center no-repeat;
+  background-size: 40%;
+}
+.left-filters-button-increase { 
+  background: url('./images/price-increase.svg') center no-repeat;
+  background-size: 40%;
+}
+.left-filters-button-letterdecrease { 
+  background: url('./images/letter-decrease.svg') center no-repeat;
+  background-size: 40%;
+}
+.left-filters-button-letterincrease { 
+  background: url('./images/letter-increase.svg') center no-repeat;
+  background-size: 40%;
+}
+
 
 /******* CENTER-COLUMN *******/
 .maincontent {
