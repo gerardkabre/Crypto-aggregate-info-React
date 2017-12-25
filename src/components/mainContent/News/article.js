@@ -6,10 +6,10 @@ let Article = props => {
   var description = props.article.description;
   return (
     <div className="post">
-      <h3>{ title } </h3>
+      <h3>{title} </h3>
       <div className="post-descriptions">
-      <h4>{props.article.source.name} </h4>
-      <p>{ }</p>
+        <h4>{props.article.source.name} </h4>
+        <p>{}</p>
       </div>
     </div>
   );
