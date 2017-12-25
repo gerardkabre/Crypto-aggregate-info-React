@@ -11,12 +11,20 @@ class App extends Component {
       selectedCoin: "bitcoin",
       searchTerm: ""
     };
-    this.coinsURL = `https://api.coinmarketcap.com/v1/ticker/`;
+  }
 
-    fetch(this.coinsURL)
+  componentDidMount() {
+    fetch("https://api.coinmarketcap.com/v1/ticker/")
       .then(response => response.json())
       .then(coins => this.setState({ coins: coins }));
   }
+  
+  onCoinSelect = coinSelected => {
+    this.setState({ selectedCoin: coinSelected });
+  };
+  onSearchTermChange = event => {
+    this.setState({ searchTerm: event.target.value });
+  };
 
   render() {
     return (
@@ -24,18 +32,14 @@ class App extends Component {
         <Leftlisting
           coins={this.state.coins}
           selectedCoin={this.state.selectedCoin}
-          onCoinSelect={coinSelected =>
-            this.setState({ selectedCoin: coinSelected })
-          }
           searchTerm={this.state.searchTerm}
+          onCoinSelect={this.onCoinSelect}
         />
         <Maincontent
           selectedCoin={this.state.selectedCoin}
           coins={this.state.coins}
           searchTerm={this.state.searchTerm}
-          onSearchTermChange={event =>
-            this.setState({ searchTerm: event.target.value })
-          }
+          onSearchTermChange={this.onSearchTermChange}
         />
       </div>
     );
