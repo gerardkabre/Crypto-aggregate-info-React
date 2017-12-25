@@ -1,7 +1,6 @@
 import React from "react";
 
 let Article = props => {
-  console.log(props.article)
   
   return (
     <tr>

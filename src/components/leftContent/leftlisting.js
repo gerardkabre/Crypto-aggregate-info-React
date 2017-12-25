@@ -1,5 +1,6 @@
 import React from "react";
 import Leftitem from "./leftitem";
+import FontAwesome from 'react-fontawesome';
 
 class Leftlisting extends React.Component {
   constructor(props) {
@@ -35,10 +36,14 @@ class Leftlisting extends React.Component {
       return <div> Loading... </div>;
     }
     return (
+      
+
       <div className="leftlisting">
+      <FontAwesome name="linkedin" size="2x"/>
+
         <h2>Choose a currency</h2>
         <div className="left-filters">
-          <button
+          <button 
             className={this.state.order === "PRICE-DECREASE"
                 ? "left-filters-button-chosen left-filters-button left-filters-button-decrease"
                 : "left-filters-button left-filters-button-decrease"
@@ -70,6 +75,7 @@ class Leftlisting extends React.Component {
             onClick={() => this.setState({ order: "LETTER-INCREASE" })}
           />
         </div>
+      
         <div className="list">
           <ul>
             {this.props.coins
