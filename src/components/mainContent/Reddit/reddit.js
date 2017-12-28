@@ -5,14 +5,31 @@ class Reddit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      redditPosts: []
+      redditPosts: [],
+      sortValue: "top",
+      timeValue: "all"
     };
+    this.urlBase = `https://www.reddit.com/search.json?q=title%3A`;
   }
-  componentWillReceiveProps(newProps) {
-    var urlBase = `https://www.reddit.com/search.json?q=title%3A`;
-    var urlSettings = `+crypto&restrict_sr=&sort=top&t=all`;
-    var finalUrl = `${urlBase}${newProps.selectedCoin}${urlSettings}`;
-    fetch(finalUrl)
+  componentWillReceiveProps(nextProps) {
+    var urlSettings = `+crypto&restrict_sr=&sort=${this.state.sortValue}&t=${this.state.timeValue}`;
+    var finalUrl = `${this.urlBase}${nextProps.selectedCoin}${urlSettings}`;
+    this.fetchingData(finalUrl)
+  }
+  handleSubmit = (event) => {
+    event.preventDefault(); 
+    var urlSettings = `+crypto&restrict_sr=&sort=${this.state.sortValue}&t=${this.state.timeValue}`;
+    var finalUrl = `${this.urlBase}${this.props.selectedCoin}${urlSettings}`;
+    this.fetchingData(finalUrl)
+  }
+  handleSortChange = (event) => {
+    this.setState({sortValue: event.target.value});
+  }
+  handleTimeChange = (event) => {
+    this.setState({timeValue: event.target.value});
+  }
+  fetchingData = url => {
+    fetch(url)
       .then(response => response.json())
       .then(data => this.setState({ redditPosts: data.data.children }));
   }
@@ -22,9 +39,23 @@ class Reddit extends React.Component {
         <h1>
           <span className="blue">{this.props.selectedCoin}</span> Reddit Posts
         </h1>
-       
           <div className="reddit-container-inside">
-          
+          <form onSubmit={this.handleSubmit}>
+            <select value={this.state.sortValue} onChange={this.handleSortChange}>
+              <option value="top">popularity</option>
+              <option value="relevancy">relevancy</option>
+              <option value="new">new</option>
+              <option value="comments">most comments</option>
+            </select>
+            <select value={this.state.timeValue} onChange={this.handleTimeChange}>
+              <option value="all">all</option>
+              <option value="hour">Last hour</option>
+              <option value="week">Last week</option>
+              <option value="month">Last month</option>
+              <option value="year">Last year</option>
+            </select>
+            <input type="submit" value="Submit" />
+          </form>
             <table >
               <thead>
                 <tr>
@@ -49,7 +80,6 @@ class Reddit extends React.Component {
             </table>
           </div>
         </div>
-
     );
   }
 }
