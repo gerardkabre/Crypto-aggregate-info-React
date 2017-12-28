@@ -16,17 +16,17 @@ class Reddit extends React.Component {
     var finalUrl = `${this.urlBase}${nextProps.selectedCoin}${urlSettings}`;
     this.fetchingData(finalUrl)
   }
-  handleSubmit = (event) => {
-    event.preventDefault(); 
-    var urlSettings = `+crypto&restrict_sr=&sort=${this.state.sortValue}&t=${this.state.timeValue}`;
+  handleSortChange = (event) => {
+    this.setState({sortValue: event.target.value});
+    var urlSettings = `+crypto&restrict_sr=&sort=${event.target.value}&t=${this.state.timeValue}`;
     var finalUrl = `${this.urlBase}${this.props.selectedCoin}${urlSettings}`;
     this.fetchingData(finalUrl)
   }
-  handleSortChange = (event) => {
-    this.setState({sortValue: event.target.value});
-  }
   handleTimeChange = (event) => {
     this.setState({timeValue: event.target.value});
+    var urlSettings = `+crypto&restrict_sr=&sort=${this.state.sortValue}&t=${event.target.value}`;
+    var finalUrl = `${this.urlBase}${this.props.selectedCoin}${urlSettings}`;
+    this.fetchingData(finalUrl)
   }
   fetchingData = url => {
     fetch(url)
@@ -40,7 +40,6 @@ class Reddit extends React.Component {
           <span className="blue">{this.props.selectedCoin}</span> Reddit Posts
         </h1>
           <div className="reddit-container-inside">
-          <form onSubmit={this.handleSubmit}>
             <select value={this.state.sortValue} onChange={this.handleSortChange}>
               <option value="top">popularity</option>
               <option value="relevancy">relevancy</option>
@@ -54,8 +53,6 @@ class Reddit extends React.Component {
               <option value="month">Last month</option>
               <option value="year">Last year</option>
             </select>
-            <input type="submit" value="Submit" />
-          </form>
             <table >
               <thead>
                 <tr>
