@@ -123,6 +123,22 @@ a {
   outline: none;
 }
 
+select {
+  text-transform: uppercase;
+  min-width: 35%;
+  height: 25px;
+  color: #6caeff;
+  border: 1px solid rgb(201, 194, 194);
+  background-color: rgb(255, 255, 255);
+  margin: 10px 0;
+  box-shadow: 6px 8px 10px 0px rgba(168, 180, 201, 0.2);
+
+}
+.selectors {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 /******* CENTER-COLUMN *******/
 .maincontent {
   padding: 2% 4%;

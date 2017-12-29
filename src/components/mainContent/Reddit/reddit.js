@@ -40,6 +40,7 @@ class Reddit extends React.Component {
           <span className="blue">{this.props.selectedCoin}</span> Reddit Posts
         </h1>
           <div className="reddit-container-inside">
+          <div className="selectors">
             <select value={this.state.sortValue} onChange={this.handleSortChange}>
               <option value="top">popularity</option>
               <option value="relevancy">relevancy</option>
@@ -53,6 +54,7 @@ class Reddit extends React.Component {
               <option value="month">Last month</option>
               <option value="year">Last year</option>
             </select>
+            </div>
             <table >
               <thead>
                 <tr>
