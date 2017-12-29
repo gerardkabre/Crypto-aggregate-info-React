@@ -101,12 +101,12 @@ a {
 
 .left-filters {
   display: flex;
-  height: 5%; 
+  justify-content: center;
   
 }
 
 .left-filters-button {
-  width: 100%;
+  margin: 0 5%;
   cursor: pointer;
   border: 0px;
   color: #a2aec0;

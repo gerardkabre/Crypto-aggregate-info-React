@@ -41,7 +41,7 @@ class Leftlisting extends React.Component {
         <div className="left-filters">
           <FontAwesome
             name=" fa-sort-amount-desc"
-            size="2x"
+            size="1x"
             className={
               this.state.order === "PRICE-DECREASE"
                 ? "left-filters-button-chosen left-filters-button"
@@ -52,7 +52,7 @@ class Leftlisting extends React.Component {
 
           <FontAwesome
             name=" fa-sort-amount-asc"
-            size="2x"
+            size="1x"
             className={
               this.state.order === "PRICE-INCREASE"
                 ? "left-filters-button-chosen left-filters-button"
@@ -64,7 +64,7 @@ class Leftlisting extends React.Component {
 
            <FontAwesome
             name=" fa-sort-alpha-asc"
-            size="2x"
+            size="1x"
             className={
               this.state.order === "LETTER-DECREASE"
                 ? "left-filters-button-chosen left-filters-button "
@@ -74,7 +74,7 @@ class Leftlisting extends React.Component {
           />
           <FontAwesome
           name="  fa-sort-alpha-desc"
-          size="2x"
+          size="1x"
             className={
               this.state.order === "LETTER-INCREASE"
                 ? "left-filters-button-chosen left-filters-button"
