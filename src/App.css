@@ -347,3 +347,11 @@ tbody tr:nth-child(odd) {
   display: flex;
   justify-content: space-between;
 }
+
+/* FOOTER */  
+
+footer {
+  margin-top: 50px;
+  height: 10px;
+  text-align:center;
+}

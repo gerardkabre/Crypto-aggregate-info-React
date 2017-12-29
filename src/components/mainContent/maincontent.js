@@ -3,6 +3,7 @@ import Nav from "./Nav/nav";
 import News from "./News/News";
 import CryptoPrice from "./CryptoPrices/CryptoPrice";
 import Reddit from "./Reddit/reddit";
+import Footer from "./footer"
 
 class Maincontent extends Component {
   render() {
@@ -21,6 +22,7 @@ class Maincontent extends Component {
           <News selectedCoin={this.props.selectedCoin} />
           <Reddit selectedCoin={this.props.selectedCoin} />
         </div>
+        <Footer />
       </div>
     );
   }
