@@ -13,7 +13,6 @@ class Maincontent extends Component {
           onSearchTermChange={this.props.onSearchTermChange}
           searchTerm={this.props.searchTerm}
         />
-
         <CryptoPrice
           coins={this.props.coins}
           selectedCoin={this.props.selectedCoin}

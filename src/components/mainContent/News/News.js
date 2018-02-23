@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Article from "./article";
+import React, { Component } from 'react';
+import Article from './article';
 
 class News extends Component {
   constructor(props) {
@@ -11,11 +11,11 @@ class News extends Component {
 
   componentWillReceiveProps(newProps) {
     var searchTerm = newProps.selectedCoin,
-      APIkey = "d5c0c2ca27914a2d9ecb78f5e519fbb6",
-      language = "language=en",
-      dateFrom = "2016-11-1",
-      sort = "relevant",
-      urlBase = "https://newsapi.org/v2/",
+      APIkey = 'd5c0c2ca27914a2d9ecb78f5e519fbb6',
+      language = 'language=en',
+      dateFrom = '2016-11-1',
+      sort = 'relevant',
+      urlBase = 'https://newsapi.org/v2/',
       articlesURL = `${urlBase}everything?q=${searchTerm}+crypto&${language}&sortBy=${sort}&apiKey=${APIkey}`;
 
     fetch(articlesURL)
@@ -26,23 +26,20 @@ class News extends Component {
   render() {
     return (
       <div className="news-container">
-        <h1>
-          <span className="blue">{this.props.selectedCoin}</span> Related
-          Articles
+        <h1 className="cryptoprices__title">
+          {this.props.selectedCoin} Related <span className="cryptoprices__title_span">Articles</span>
         </h1>
         <div className="news-container-inside">
           <table>
             <thead>
               <tr>
-              <th className="th">Title</th>
-              <th className="th">Source</th>
-              <th className="th">Author</th>
-              <th className="th">Date</th>
+                <th className="th">Title</th>
+                <th className="th">Source</th>
+                <th className="th">Author</th>
+                <th className="th">Date</th>
               </tr>
             </thead>
-            <tbody className="tbody">
-              {this.state.articles.map(x => <Article article={x} />)}
-            </tbody>
+            <tbody className="tbody">{this.state.articles.map(x => <Article article={x} />)}</tbody>
           </table>
         </div>
       </div>

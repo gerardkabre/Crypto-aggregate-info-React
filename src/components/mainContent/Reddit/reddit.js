@@ -1,45 +1,45 @@
-import React from "react";
-import RedditPost from "./redditpost";
+import React from 'react';
+import RedditPost from './redditpost';
 
 class Reddit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       redditPosts: [],
-      sortValue: "top",
-      timeValue: "all"
+      sortValue: 'top',
+      timeValue: 'all'
     };
     this.urlBase = `https://www.reddit.com/search.json?q=title%3A`;
   }
   componentWillReceiveProps(nextProps) {
     var urlSettings = `+crypto&restrict_sr=&sort=${this.state.sortValue}&t=${this.state.timeValue}`;
     var finalUrl = `${this.urlBase}${nextProps.selectedCoin}${urlSettings}`;
-    this.fetchingData(finalUrl)
+    this.fetchingData(finalUrl);
   }
-  handleSortChange = (event) => {
-    this.setState({sortValue: event.target.value});
+  handleSortChange = event => {
+    this.setState({ sortValue: event.target.value });
     var urlSettings = `+crypto&restrict_sr=&sort=${event.target.value}&t=${this.state.timeValue}`;
     var finalUrl = `${this.urlBase}${this.props.selectedCoin}${urlSettings}`;
-    this.fetchingData(finalUrl)
-  }
-  handleTimeChange = (event) => {
-    this.setState({timeValue: event.target.value});
+    this.fetchingData(finalUrl);
+  };
+  handleTimeChange = event => {
+    this.setState({ timeValue: event.target.value });
     var urlSettings = `+crypto&restrict_sr=&sort=${this.state.sortValue}&t=${event.target.value}`;
     var finalUrl = `${this.urlBase}${this.props.selectedCoin}${urlSettings}`;
-    this.fetchingData(finalUrl)
-  }
+    this.fetchingData(finalUrl);
+  };
   fetchingData = url => {
     fetch(url)
       .then(response => response.json())
       .then(data => this.setState({ redditPosts: data.data.children }));
-  }
+  };
   render() {
     return (
       <div className="reddit-container">
-        <h1>
-          <span className="blue">{this.props.selectedCoin}</span> Reddit Posts
+        <h1 className="cryptoprices__title">
+          {this.props.selectedCoin} <span className="cryptoprices__title_span"> Reddit </span> Posts
         </h1>
-          <div className="reddit-container-inside">
+        <div className="reddit-container-inside">
           <div className="selectors">
             <select value={this.state.sortValue} onChange={this.handleSortChange}>
               <option value="top">popularity</option>
@@ -54,17 +54,17 @@ class Reddit extends React.Component {
               <option value="month">Last month</option>
               <option value="year">Last year</option>
             </select>
-            </div>
-            <table >
-              <thead>
-                <tr>
-                  <th className="th">Title</th>
-                  <th className="th">Subreddit</th>
-                  <th className="th">Upvotes</th>
-                  <th className="th">Comments</th>
-                </tr>
-              </thead>
-              <tbody className="tbody">
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th className="th">Title</th>
+                <th className="th">Subreddit</th>
+                <th className="th">Upvotes</th>
+                <th className="th">Comments</th>
+              </tr>
+            </thead>
+            <tbody className="tbody">
               {this.state.redditPosts.map(x => (
                 <RedditPost
                   subreddit={x.data.subreddit_name_prefixed}
@@ -75,10 +75,10 @@ class Reddit extends React.Component {
                   upvotes={x.data.ups}
                 />
               ))}
-              </tbody>
-            </table>
-          </div>
+            </tbody>
+          </table>
         </div>
+      </div>
     );
   }
 }
