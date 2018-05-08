@@ -7,6 +7,8 @@ import PriceDisplay from './components/PriceDisplay';
 import RedditContainer from './components/RedditContainer';
 import Footer from './components/Footer';
 
+import { fetchCoins } from './utils/api';
+
 import './App.css';
 
 class App extends Component {
@@ -17,14 +19,11 @@ class App extends Component {
   };
 
   componentDidMount() {
-    fetch('https://api.coinmarketcap.com/v1/ticker/')
-      .then(response => response.json())
-      .then(coins => this.setState({ coins: coins }));
+    fetchCoins().then(coins => this.setState({ coins: coins }));
   }
 
-  onCoinSelect = coinSelected => {
-    this.setState({ selectedCoin: coinSelected });
-  };
+  onCoinSelect = selectedCoin => this.setState({ selectedCoin });
+
   onSearchTermChange = event => {
     this.setState({ searchTerm: event.target.value });
   };
@@ -40,7 +39,7 @@ class App extends Component {
             onCoinSelect={this.onCoinSelect}
           />
         </div>
-        
+
         <div className="maincontent">
           <Nav onSearchTermChange={this.onSearchTermChange} searchTerm={this.state.searchTerm} />
           <PriceDisplay coins={this.state.coins} selectedCoin={this.state.selectedCoin} />

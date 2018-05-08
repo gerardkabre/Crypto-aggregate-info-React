@@ -3,19 +3,21 @@ import React from 'react';
 import DisplayListItem from './DisplayList-Item';
 import DisplayList from './DisplayList';
 
+import { fetchRedditPosts } from '../utils/api';
+
 class RedditContainer extends React.Component {
   state = {
     redditPosts: [],
     sortValue: 'top',
     timeValue: 'all'
   };
-  urlBase = `https://www.reddit.com/search.json?q=title%3A`;
 
   componentWillReceiveProps(nextProps) {
-    var urlSettings = `+crypto&restrict_sr=&sort=${this.state.sortValue}&t=${this.state.timeValue}`;
-    fetch(`${this.urlBase}${nextProps.selectedCoin}${urlSettings}`)
-      .then(response => response.json())
-      .then(data => this.setState({ redditPosts: data.data.children }));
+    fetchRedditPosts(this.state.sortValue, this.state.timeValue, nextProps.selectedCoin)
+    .then(res => this.setState({ redditPosts: res.data.children })
+    );
+
+    
   }
   handleSortChange = event => {
     this.setState({ sortValue: event.target.value });

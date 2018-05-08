@@ -3,23 +3,15 @@ import React, { Component } from 'react';
 import DisplayListItem from './DisplayList-Item';
 import DisplayList from './DisplayList';
 
+import { fetchArticles } from '../utils/api';
+
 class ArticlesContainer extends Component {
   state = {
     articles: []
   };
 
   componentWillReceiveProps(newProps) {
-    var searchTerm = newProps.selectedCoin,
-      APIkey = 'd5c0c2ca27914a2d9ecb78f5e519fbb6',
-      language = 'language=en',
-      dateFrom = '2016-11-1',
-      sort = 'relevant',
-      urlBase = 'https://newsapi.org/v2/',
-      articlesURL = `${urlBase}everything?q=${searchTerm}+crypto&${language}&sortBy=${sort}&apiKey=${APIkey}`;
-
-    fetch(articlesURL)
-      .then(response => response.json())
-      .then(articles => this.setState({ articles: articles.articles }));
+    fetchArticles(newProps.selectedCoin).then(res => this.setState({ articles: res.articles }));
   }
 
   render() {
