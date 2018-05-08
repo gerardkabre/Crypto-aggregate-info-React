@@ -23,10 +23,7 @@ class App extends Component {
   }
 
   onCoinSelect = selectedCoin => this.setState({ selectedCoin });
-
-  onSearchTermChange = event => {
-    this.setState({ searchTerm: event.target.value });
-  };
+  onSearchTermChange = event => this.setState({ searchTerm: event.target.value });
 
   render() {
     return (

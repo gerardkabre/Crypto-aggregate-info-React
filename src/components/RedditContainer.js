@@ -17,18 +17,34 @@ class RedditContainer extends React.Component {
       this.setState({ redditPosts: res.data.children })
     );
   }
-  handleSortChange = event => {
-    this.setState({ sortValue: event.target.value });
-  };
-  
-  handleTimeChange = event => {
-    this.setState({ timeValue: event.target.value });
-  
+
+  handleChange = (event, element) => {
+    if (element === 'sort') this.setState({ sortValue: event.target.value });
+    if (element === 'time') this.setState({ timeValue: event.target.value });
+    fetchRedditPosts(this.state.sortValue, this.state.timeValue, this.props.selectedCoin).then(res =>
+      this.setState({ redditPosts: res.data.children })
+    );
   };
 
   render() {
     return (
       <div className="reddit-container">
+        <div className="selectors">
+          <select value={this.state.sortValue} onChange={event => this.handleChange(event, 'sort')}>
+            <option value="top">popularity</option>
+            <option value="relevancy">relevancy</option>
+            <option value="new">new</option>
+            <option value="comments">most comments</option>
+          </select>
+          <select value={this.state.timeValue} onChange={event => this.handleChange(event, 'time')}>
+            <option value="all">all</option>
+            <option value="hour">Last hour</option>
+            <option value="week">Last week</option>
+            <option value="month">Last month</option>
+            <option value="year">Last year</option>
+          </select>
+        </div>
+
         <DisplayList
           title={'Reddit new component'}
           column1={'Title'}
@@ -52,21 +68,3 @@ class RedditContainer extends React.Component {
 }
 
 export default RedditContainer;
-
-/*
-<div className="selectors">
-            <select value={this.state.sortValue} onChange={this.handleSortChange}>
-              <option value="top">popularity</option>
-              <option value="relevancy">relevancy</option>
-              <option value="new">new</option>
-              <option value="comments">most comments</option>
-            </select>
-            <select value={this.state.timeValue} onChange={this.handleTimeChange}>
-              <option value="all">all</option>
-              <option value="hour">Last hour</option>
-              <option value="week">Last week</option>
-              <option value="month">Last month</option>
-              <option value="year">Last year</option>
-            </select>
-</div>
-*/
