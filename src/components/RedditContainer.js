@@ -13,19 +13,17 @@ class RedditContainer extends React.Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    fetchRedditPosts(this.state.sortValue, this.state.timeValue, nextProps.selectedCoin)
-    .then(res => this.setState({ redditPosts: res.data.children })
+    fetchRedditPosts(this.state.sortValue, this.state.timeValue, nextProps.selectedCoin).then(res =>
+      this.setState({ redditPosts: res.data.children })
     );
-
-    
   }
   handleSortChange = event => {
     this.setState({ sortValue: event.target.value });
-    // var finalUrl = `${this.urlBase}${this.props.selectedCoin}${urlSettings}`;
   };
+  
   handleTimeChange = event => {
     this.setState({ timeValue: event.target.value });
-    // var finalUrl = `${this.urlBase}${this.props.selectedCoin}${urlSettings}`;
+  
   };
 
   render() {
