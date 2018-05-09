@@ -1,4 +1,6 @@
-## React app that displays Price & related articles & subrreddits, of more than 100+ crypto currencies.
+## Displays Price - related articles - reddit posts: of more than 100+ cryptos
+
+Built With react 
 
 ![Alt Text](https://media.giphy.com/media/fjxydDqi1pRkVHCF4J/giphy.gif)
 
