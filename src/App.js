@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import CoinsListing from './components/CoinsListing';
-import Nav from './components/Nav/nav';
+import Header from './components/Header';
 import ArticlesContainer from './components/ArticlesContainer';
 import PriceDisplay from './components/PriceDisplay';
 import RedditContainer from './components/RedditContainer';
@@ -23,6 +23,7 @@ class App extends Component {
   }
 
   onCoinSelect = selectedCoin => this.setState({ selectedCoin });
+
   onSearchTermChange = event => this.setState({ searchTerm: event.target.value });
 
   render() {
@@ -38,12 +39,12 @@ class App extends Component {
         </div>
 
         <div className="maincontent">
-          <Nav onSearchTermChange={this.onSearchTermChange} searchTerm={this.state.searchTerm} />
+          <Header onSearchTermChange={this.onSearchTermChange} searchTerm={this.state.searchTerm} />
           <PriceDisplay coins={this.state.coins} selectedCoin={this.state.selectedCoin} />
 
           <div className="content-lists">
-            <ArticlesContainer selectedCoin={this.state.selectedCoin} />
             <RedditContainer selectedCoin={this.state.selectedCoin} />
+            <ArticlesContainer selectedCoin={this.state.selectedCoin} />
           </div>
 
           <Footer />

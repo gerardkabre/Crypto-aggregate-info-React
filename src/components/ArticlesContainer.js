@@ -18,7 +18,7 @@ class ArticlesContainer extends Component {
     return (
       <div className="reddit-container">
         <DisplayList
-          title={'articles biiiitch'}
+          title={'news articles'}
           column1={'Title'}
           column2={'Source'}
           column3={'Author'}

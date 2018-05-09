@@ -1,6 +1,6 @@
 import React from 'react';
 
-let Nav = props => (
+const Header = props => (
   <div className="nav">
     <div className="logo" />
     <div className="searchBar">
@@ -16,4 +16,4 @@ let Nav = props => (
   </div>
 );
 
-export default Nav;
+export default Header;

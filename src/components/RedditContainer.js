@@ -29,24 +29,8 @@ class RedditContainer extends React.Component {
   render() {
     return (
       <div className="reddit-container">
-        <div className="selectors">
-          <select value={this.state.sortValue} onChange={event => this.handleChange(event, 'sort')}>
-            <option value="top">popularity</option>
-            <option value="relevancy">relevancy</option>
-            <option value="new">new</option>
-            <option value="comments">most comments</option>
-          </select>
-          <select value={this.state.timeValue} onChange={event => this.handleChange(event, 'time')}>
-            <option value="all">all</option>
-            <option value="hour">Last hour</option>
-            <option value="week">Last week</option>
-            <option value="month">Last month</option>
-            <option value="year">Last year</option>
-          </select>
-        </div>
-
         <DisplayList
-          title={'Reddit new component'}
+          title={'Reddit posts'}
           column1={'Title'}
           column2={'Subreddit'}
           column3={'Upvotes'}
@@ -62,6 +46,22 @@ class RedditContainer extends React.Component {
             />
           ))}
         </DisplayList>
+
+        <div className="selectors">
+          <select value={this.state.sortValue} onChange={event => this.handleChange(event, 'sort')}>
+            <option value="top">popularity</option>
+            <option value="relevancy">relevancy</option>
+            <option value="new">new</option>
+            <option value="comments">most comments</option>
+          </select>
+          <select value={this.state.timeValue} onChange={event => this.handleChange(event, 'time')}>
+            <option value="all">all</option>
+            <option value="hour">Last hour</option>
+            <option value="week">Last week</option>
+            <option value="month">Last month</option>
+            <option value="year">Last year</option>
+          </select>
+        </div>
       </div>
     );
   }

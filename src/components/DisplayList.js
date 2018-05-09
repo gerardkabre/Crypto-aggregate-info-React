@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 const DisplayList = ({ selectedCoin, children, title, column1, column2, column3, column4 }) => (
   <div className="reddit-container-inside">
     <h1 className="cryptoprices__title">
-      {selectedCoin} <span className="cryptoprices__title_span"> {title} </span> Posts
+      {selectedCoin} <span className="cryptoprices__title_span"> {title} </span> 
     </h1>
     <table>
       <thead>
